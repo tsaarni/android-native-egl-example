@@ -59,13 +59,10 @@ GLubyte indices[] = {
 
 
 Renderer::Renderer()
+    : _msg(MSG_NONE), _display(0), _surface(0), _context(0), _angle(0)
 {
     LOG_INFO("Renderer instance created");
     pthread_mutex_init(&_mutex, 0);    
-    _display = 0;
-    _surface = 0;
-    _context = 0;
-    _angle = 0;
     return;
 }
 
@@ -225,10 +222,7 @@ bool Renderer::initialize()
     _display = display;
     _surface = surface;
     _context = context;
-    _width = width;
-    _height = height;
 
-    
     glDisable(GL_DITHER);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
     glClearColor(0, 0, 0, 0);
@@ -257,8 +251,6 @@ void Renderer::destroy() {
     _display = EGL_NO_DISPLAY;
     _surface = EGL_NO_SURFACE;
     _context = EGL_NO_CONTEXT;
-    _width = 0;
-    _height = 0;
 
     return;
 }

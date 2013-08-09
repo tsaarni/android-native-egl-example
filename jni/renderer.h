@@ -53,8 +53,6 @@ private:
     EGLDisplay _display;
     EGLSurface _surface;
     EGLContext _context;
-    int _width;
-    int _height;
     GLfloat _angle;
     
     // RenderLoop is called in a rendering thread started in start() method
