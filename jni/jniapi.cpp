@@ -29,9 +29,9 @@
 static ANativeWindow *window = 0;
 static Renderer *renderer = 0;
 
-JNIEXPORT void JNICALL Java_tsaarni_nativeeglexample_NativeEglExample_nativeOnCreate(JNIEnv* jenv, jobject obj)
+JNIEXPORT void JNICALL Java_tsaarni_nativeeglexample_NativeEglExample_nativeOnStart(JNIEnv* jenv, jobject obj)
 {
-    LOG_INFO("nativeOnResume");
+    LOG_INFO("nativeOnStart");
     renderer = new Renderer();
     return;
 }

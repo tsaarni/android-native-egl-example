@@ -37,8 +37,6 @@ public class NativeEglExample extends Activity implements SurfaceHolder.Callback
         super.onCreate(savedInstanceState);
 
         Log.i(TAG, "onCreate()");
-
-        nativeOnCreate();
         
         setContentView(R.layout.main);
         SurfaceView surfaceView = (SurfaceView)findViewById(R.id.surfaceview);
@@ -50,6 +48,13 @@ public class NativeEglExample extends Activity implements SurfaceHolder.Callback
                                                  Toast.LENGTH_LONG);
                     toast.show();
                 }});
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart()");
+        nativeOnStart();
     }
 
     @Override
@@ -68,7 +73,7 @@ public class NativeEglExample extends Activity implements SurfaceHolder.Callback
 
     @Override
     protected void onStop() {
-        super.onDestroy();
+        super.onStop();
         Log.i(TAG, "onStop()");
         nativeOnStop();
     }
@@ -85,7 +90,7 @@ public class NativeEglExample extends Activity implements SurfaceHolder.Callback
     }
 
 
-    public static native void nativeOnCreate();
+    public static native void nativeOnStart();
     public static native void nativeOnResume();
     public static native void nativeOnPause();
     public static native void nativeOnStop();
