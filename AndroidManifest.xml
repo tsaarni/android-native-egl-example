@@ -3,7 +3,8 @@
       package="tsaarni.nativeeglexample"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+    <uses-sdk android:minSdkVersion="5"/>
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:debuggable="true">
         <activity android:name="NativeEglExample"
                   android:label="@string/app_name">
             <intent-filter>
