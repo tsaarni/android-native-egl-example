@@ -1,0 +1,29 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.14+'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    defaultConfig {
+        ndk {
+            moduleName "nativeegl"
+            ldLibs "log", "android", "EGL", "GLESv1_CM"
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
